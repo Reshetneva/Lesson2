@@ -1,0 +1,37 @@
+// Написать простой класс Телефонный Справочник, который хранит в себе список фамилий и телефонных номеров. В этот телефонный справочник с помощью метода add() можно добавлять записи, а с помощью метода get() искать номер телефона по фамилии. Следует учесть, что под одной фамилией может быть несколько телефонов (в случае однофамильцев), тогда при запросе такой фамилии должны выводиться все телефоны. Желательно не добавлять лишний функционал (дополнительные поля
+// (имя, отчество, адрес), взаимодействие с пользователем через консоль и т.д). Консоль использовать только для вывода результатов проверки телефонного справочника.
+
+public class MainClass {
+    public static void main(String[] args){
+        System.out.println("Создаем справочник");
+        Phonebook phonebook = new Phonebook();
+        System.out.println("-----------------");
+
+        System.out.println("Наполняем справочник");
+        phonebook.add("Sidorov", "57579999");
+        phonebook.add("Sidorov", "99995757");
+        phonebook.add("Petrov", "55668899");
+        phonebook.add("Ivanov", "99223377");
+        phonebook.add("Ivanov", "88552233");
+        System.out.println("-----------------");
+
+        System.out.println("Получаем номера");
+        System.out.println("Ivanov");
+        System.out.println(phonebook.get("Ivanov"));
+        System.out.println("Petrov");
+        System.out.println(phonebook.get("Petrov"));
+        System.out.println("Sidorov");
+        System.out.println(phonebook.get("Sidorov"));
+        System.out.println("-----------------");
+
+        System.out.println("Случай отсутствия записи");
+        System.out.println("Butuk");
+        System.out.println(phonebook.get("Butuk"));
+        System.out.println("-----------------");
+
+        System.out.println("Пробуем записать существующий номер");
+        phonebook.add("Ivanov", "99223377");
+        System.out.println("Ivanov");
+        System.out.println(phonebook.get("Ivanov"));
+    }
+}
